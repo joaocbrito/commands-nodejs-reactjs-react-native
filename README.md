@@ -1,1 +1,314 @@
 # commands-nodejs-reactjs-react-native
+
+yarn init -y // na pasta do projeto pelo cmd
+// tudo no terminal
+yarn add express // para usar o framework express
+
+// rodar o seervidor
+node index.js
+
+//para startar o servidor automatico
+yarn add nodemon -D // D significa apenas em desenvolvimento
+
+//rodar o servidor com o nodemon
+yarn nodemon index.js
+
+// configurar padronização de codigo
+yarn add eslint -D
+yarn eslint --init
+
+to check syntax, find problems..
+javascript modules..
+no typescript
+use a popular stye guide
+airbnb
+javascript
+y
+
+// verifica se cod esta muito grande para deixar mais bonito e padrao
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+
+// usar importações
+yarn add sucrase
+
+// criando a database do gobarber
+docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+
+//criar tabela
+yarn sequelize migration:create --name=create-users
+
+//depois de configurar o migration para criar a tabela
+yarn sequelize db:migrate
+
+// relacionar usuario com a imagem do avatar
+yarn sequelize migration:create --name=add-avatar-field-to-users
+
+docker ps --all // listar os containers
+docker container rm cc3f2ff51cab // remover container
+docker start database // executar 
+
+docker run --name mongobarber -p 27017:27017 -d -t mongo // diego
+docker volume create --name=mongodata
+docker run --name mongodb -v mongodata:/data/db -d -p 27017:27017 mongo
+docker run -d -p 27017:27017 --name mongobarber mongo // deu certo
+
+// adicionar mongo db
+yarn add mongoose
+
+//para trabalhar com data
+yarn add date-fns@next
+
+// usar email
+yarn add nodemailer
+
+// template para email
+yarn add express-handlebars nodemailer-express-handlebars
+
+docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
+
+yarn add bee-queue
+
+// testes de erro
+yarn add @sentry/node@5.12.2
+
+//extensao para pegar erros async quando for passar para o sentry
+yarn add express-async-errors
+
+// tratativa das mensagens de erro
+yarn add youch
+
+// para configurar variaveis de ambiente
+yarn add dotenv
+
+// ficou faltando isso para fazer a integração
+yarn add cors
+
+################ REACT ############
+
+// isso é usado na semana omni, nao teve no curso, pode pular
+npx create-react-app nome_do_projeto
+
+yarn add react react-dom 
+
+// para usar o babel com react dependencias de dev
+yarn add @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli -D
+
+// instalando react com o dom
+yarn add react react-dom
+
+yarn add babel-loader -D
+
+// para auto carregar quand salvar
+yarn add webpack-dev-server -D
+
+// add no webpack.config
+devServer: {
+        contentBase: path.resolve(__dirname, 'public'),
+    },
+
+// add no package.json
+"dev": "webpack-dev-server --mode development"
+
+// add css
+yarn add style-loader css-loader -D
+
+// para usa imagens
+yarn add file-loader -D
+
+// para nao usar no construtor da classe babel
+yarn add @babel/plugin-proposal-class-properties -D
+
+// avisa quado não é passado uma funcção como parametro
+yarn add prop-types
+
+// react ja cria tudo configurado 
+yarn create react-app "modulo05"
+ou dependendo da versão
+yarn global add create-react-app
+create-react-app "modulo05"
+
+yarn add eslint -D
+yarn eslint --init
+yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
+
+// para dar reoload na pagina sem sair dela
+yarn add react-router-dom
+
+// para usar estilização
+yarn add styled-components
+
+vscode-styled-components >> plugins
+
+// usar icones famosos
+yarn add react-icons
+
+// lib para fazer requi de api
+yarn add axios
+
+// validação de propriedades
+yarn add prop-types
+
+
+// REACT NATIVE
+
+https://docs.rocketseat.dev/ambiente-react-native/android/windows#chocolatey
+
+// apenas uma vez para instalar na maquina
+yarn add react-native-cli
+
+react-native init modulo06
+
+// configurar o android no wifi
+https://blog.getty.io/debugando-react-native-no-android-via-wi-fi-cedce242c375
+
+// iniciar projeto
+react-native run-android
+
+// startar
+react-native start
+react-native start --reset-cache
+
+// fazer as config de eslint
+    "eslint": "^6.5.1",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0"
+
+// debugador de testes >> reactrotron
+yarn add reactotron-react-native
+
+// configurar porta do reactotron
+usar na pasta do sdk-platforms-tools
+adb reverse tcp:9090 tcp:9090
+{host : hostname}
+
+// biblioteca para navegação
+yarn add @react-navigation/stack
+
+yarn add @react-navigation/native
+
+yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+// depois de dar pau instalei isso
+yarn add @react-navigation/core@next @react-navigation/native@next
+
+// serve para ficar javascript com css 
+yarn add styled-components
+
+// serve para adicionar imagens - 
+https://github.com/oblador/react-native-vector-icons#ios
+yarn add react-native-vector-icons
+
+
+yarn add axios
+
+// salvar os dados no dispositivo
+yarn add @react-native-community/async-storage
+
+// para fazer as validações
+yarn add prop-types
+
+##########  REDUX  #############
+
+// para fazer navegação
+yarn add react-router-dom
+
+// para escurecer as cores
+yarn add polished
+
+// api fake para testes
+yarn global add json-server
+
+// para startar o servidor fake, -w para restartar quando for alterado o arquivo
+json-server server.json -p 3333 -w
+
+// deixar com delay para testes
+json-server server.json -p 3333 -d 2000
+
+// usando o redux
+yarn add redux react-redux
+
+// usando reactotron
+yarn add reactotron-react-js reactotron-redux
+
+// para usar estados do redux
+yarn add immer
+
+// redux
+yarn add redux-saga
+
+// reactotron
+yarn add reactotron-redux-saga
+
+// biblioteca para mensagens de erro e avisos
+yarn add react-toastify
+
+// controlar a parte das rotas
+yarn add history
+
+*** HOOKS ***
+
+// plugin para eslint e hook
+yarn add eslint-plugin-react-hooks -
+
+*** GO BARBER FRONT END ***
+
+yarn add react-router-dom
+
+yarn add history
+
+yarn add reactotron-react-js
+
+yarn add prop-types
+
+yarn add styled-components
+
+// fazer a configuração nas rotas
+yarn add customize-cra react-app-rewired -D
+yarn add babel-plugin-root-import eslint-import-resolver-babel-plugin-root-import -D
+
+// para adicionaro darken
+yarn add polished
+
+// formulario da rocketseat
+yarn add @rocketseat/unform
+
+// validações de formulario
+yarn add yup
+
+// utilizando redux
+yarn add redux redux-saga react-redux reactotron-redux reactotron-redux-saga immer
+
+// para usar api
+yarn add axios
+
+// para manter o usuario logado
+yarn add redux-persist
+
+// para informar erros
+yarn add react-toastify
+
+// para usar icones
+yarn add react-icons
+
+// scroll nas listar
+yarn add react-perfect-scrollbar
+
+para usar datas
+// yarn add date-fns@next
+
+// para trabalahr com datas timezone
+yarn add date-fns-tz
+
+
+*** GO BARBER MOBILE ***
+
+// para usar visual
+yarn add react-native-linear-gradient
+
+// para usar link
+react-native link react-native-linear-gradient
+
+
+
+
