@@ -1,5 +1,5 @@
 // criar o arquivo package.json para iniciar o projeto
-yarn init -y 
+yarn init -y
 
 // para criar o servidor
 yarn add express
@@ -66,18 +66,52 @@ yarn add multer
 
 
 *** DOCKER *** {
+    ------ https://docs.docker.com/engine/reference/commandline/image_ls/ -------- melhor documentação
     // comandos básicos
-    docker ps --all // listar os containers
+    // * o comando ( docker container ) pode ser apenas ( docker )
+    docker ps // listar os container em execução
+    docker ps -a // listar todo os containers ( executados e parados)
+    docker ps --all // listar os containers ( não sei a diferença do de cima, mas lista menos containers)
     docker container rm cc3f2ff51cab // remover container
-    docker start cc3f2ff51cab // executar 
+    docker start cc3f2ff51cab // executar container
+    docker stop cc3f2ff51cab // parar container
+    -d // serve para rodar sem logs
+    -rm // server pra deletar o container quando para de executar
 
-    docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+    lsof -i tcp:1433 // listar qual programa esta usando esta porta
+
+    //docker pull microsoft/mssql-server-linux // baixar iamgem do sqlserver (opcional)
+    docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=N0target' -p 1433:1433 -d microsoft/mssql-server-linux // baixar e criar container sqlserver
+
+
+    docker run --name gostack_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres // criar o container do postgres
+
+
+    ## criar database
+    gostack_gobarber
+
+
     docker run --name mongobarber -p 27017:27017 -d -t mongo // diego
     docker volume create --name=mongodata
     docker run --name mongodb -v mongodata:/data/db -d -p 27017:27017 mongo
     docker run -d -p 27017:27017 --name mongobarber mongo // deu certo
-    docker run --name redisbarber -p 6379:6379 -d -t redis:alpine   
-}   
+    docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
+}
+
+// adicionar essa lib para o front conseguir consumir o back
+yarn add cors
+
+
+###### ESLIN #######
+
+"editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+        "javascript",
+        "typescript"
+    ],
 
 
 
@@ -107,8 +141,7 @@ yarn add youch
 // para configurar variaveis de ambiente
 yarn add dotenv
 
-// ficou faltando isso para fazer a integra��o
-yarn add cors
+
 
 ################ REACT JS ############
 
@@ -125,10 +158,36 @@ yarn add @types/styled-components
 // para usar icones
 yarn add react-icons
 
+// para usar estilização
+yarn add styled-components
+vscode-styled-components >> plugins
+
+
+// usar icones famosos
+yarn add react-icons
+
+
+// usar esquema de sombra
+yarn add polished
+
+// lib  da rocket para facilitar a vida usando formularios
+yarn add @unform/core @unform/web
+
+// vaidação de fomulario e erros
+yarn add yup
+
+// lib para usar animações
+yarn add react-spring
+
+// lib para usar rotas
+yarn add react-router-dom
+yarn add @types/react-router-dom -D
+
+
 
 -----------------------------------------------------------------
 
-yarn add react react-dom 
+yarn add react react-dom
 
 // para usar o babel com react dependencias de dev
 yarn add @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli -D
@@ -161,42 +220,41 @@ yarn add @babel/plugin-proposal-class-properties -D
 // avisa quado n�o � passado uma func��o como parametro
 yarn add prop-types
 
-// react ja cria tudo configurado 
-yarn create react-app "modulo05"
-ou dependendo da vers�o
-yarn global add create-react-app
-create-react-app "modulo05"
 
-yarn add eslint -D
-yarn eslint --init
-yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D
+
+
 
 // para dar reoload na pagina sem sair dela
 yarn add react-router-dom
 
-// para usar estiliza��o
-yarn add styled-components
 
-vscode-styled-components >> plugins
 
-// usar icones famosos
-yarn add react-icons
+
 
 // lib para fazer requi de api
 yarn add axios
 
-// valida��o de propriedades
-yarn add prop-types
+
+################ NEXT JS ############
+
+// criar um projeto
+yarn create next-app nome_do_projeto
+npx create-next- app nome_do_projeto
+npx degit https://github.com/rocketseat-content/react-nextjs-typescript-structure nome_do_projeto
+
+// instalar dependencias se for usar typescript
+yarn add typescript @types/react @types/react-dom @types/node -D
 
 
-// REACT NATIVE
+################ REACT NATIVE ############
 
 https://docs.rocketseat.dev/ambiente-react-native/android/windows#chocolatey
 
 // apenas uma vez para instalar na maquina
 yarn add react-native-cli
 
-react-native init modulo06
+// criar projeto
+npx react-native init AwesomeProject
 
 // configurar o android no wifi
 https://blog.getty.io/debugando-react-native-no-android-via-wi-fi-cedce242c375
@@ -232,10 +290,10 @@ yarn add react-native-reanimated react-native-gesture-handler react-native-scree
 // depois de dar pau instalei isso
 yarn add @react-navigation/core@next @react-navigation/native@next
 
-// serve para ficar javascript com css 
+// serve para ficar javascript com css
 yarn add styled-components
 
-// serve para adicionar imagens - 
+// serve para adicionar imagens -
 https://github.com/oblador/react-native-vector-icons#ios
 yarn add react-native-vector-icons
 
